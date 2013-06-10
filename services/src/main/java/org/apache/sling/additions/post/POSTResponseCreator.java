@@ -17,19 +17,31 @@
 
 package org.apache.sling.additions.post;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
-
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.servlets.post.AbstractPostResponse;
+import org.apache.sling.servlets.post.HtmlResponse;
 import org.apache.sling.servlets.post.PostResponse;
 import org.apache.sling.servlets.post.PostResponseCreator;
-import org.apache.sling.servlets.post.HtmlResponse;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+
+@Component
+@Service
+public class POSTResponseCreator implements PostResponseCreator {
+
+    public PostResponse createPostResponse (SlingHttpServletRequest req) {
+        String errorpage = req.getParameter(":errorpage");
+        if (errorpage != null) {
+            return new EnhancedPOSTResponse (req);
+        }
+        else {
+            return new HtmlResponse ();
+        }
+    }
+}
 
 class EnhancedPOSTResponse extends HtmlResponse {
 	private SlingHttpServletRequest request;
@@ -42,51 +54,18 @@ class EnhancedPOSTResponse extends HtmlResponse {
 	@Override
 	protected void doSend (HttpServletResponse response) throws IOException {
 		String errorpage = request.getParameter(":errorpage");
-		if (isSuccessful () == false && errorpage != null) { //we are interested in errors only
+		if (isSuccessful () == false && errorpage != null) {
+		    //we are interested in errors only
 			int status = getStatusCode();
 			Throwable err = getError();
-			String msg = "unknown error " + status;
-			if (err != null) msg = err.getMessage();
-			if (msg == null) msg = "unknown message error";
+			String msg = "Unknown error: " + status;
+			if (err != null) {
+                msg = err.getMessage();
+            }
 			response.sendRedirect(errorpage + "?error=" + java.net.URLEncoder.encode(msg, "UTF-8"));
-			/*
-			javax.servlet.RequestDispatcher disp = request.getRequestDispatcher("/.edit.html");
-			try {
-				((POSTWrapper)request).setM("GET");
-				disp.forward (request, response);
-			}
-			catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			*/
 		}
 		else {
 			super.doSend (response);
 		}
-		/*
-		String forward = request.getParameter(":forward");
-		String redirect = request.getParameter(":redirect");
-
-			response.sendRedirect("http://localhost:8080" + redirect);
-		}
-		else {
-		}
-		*/
 	}
 }
-
-@Component
-@Service
-public class POSTResponseCreator implements PostResponseCreator {
-
-	public PostResponse createPostResponse (SlingHttpServletRequest req) {
-		String errorpage = req.getParameter(":errorpage");
-		if (errorpage != null) {
-			return new EnhancedPOSTResponse (req);
-		}
-		else {
-			return new HtmlResponse ();
-		}
-	}
-}
-
