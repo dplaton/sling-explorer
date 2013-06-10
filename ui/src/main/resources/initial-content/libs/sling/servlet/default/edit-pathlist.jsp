@@ -18,7 +18,7 @@
                   utils.*"
 %>
 <%@ page import="org.apache.sling.additions.service.SearchService" %>
-<%@ include file="/apps/rested/components/utils.jsp" %>
+<%@ include file="/apps/sling-explorer/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
 <sling:defineObjects />
 <%
