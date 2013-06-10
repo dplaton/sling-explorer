@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.apache.sling</groupId>
+        <artifactId>sling</artifactId>
+        <version>16</version>
+    </parent>
+
+    <name>Sling Content Explorer</name>
+    <description>Web client for Apache Sling.</description>
+    <url>tbd</url>
+
+    <groupId>org.apache.sling.explorer</groupId>
+    <artifactId>sling-explorer</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>ui</module>
+        <module>services</module>
+        <module>taglib</module>
+    </modules>
+
+    <properties>
+        <productName>Sling Content Explorer</productName>
+        <slingHost>localhost</slingHost>
+        <slingPort>8080</slingPort>
+        <slingUser>admin</slingUser>
+        <slingPassword>admin</slingPassword>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+                <version>1.8.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>maven-sling-plugin</artifactId>
+                <version>2.1.0</version>
+                <executions>
+                    <execution>
+                        <id>install-bundle</id>
+                        <goals>
+                            <goal>install</goal>
+                        </goals>
+                        <configuration>
+                            <slingUrl>http://${slingHost}:${slingPort}/system/console</slingUrl>
+                            <user>${slingUser}</user>
+                            <password>${slingPassword}</password>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
