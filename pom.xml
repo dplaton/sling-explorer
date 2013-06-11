@@ -33,7 +33,6 @@
         <slingPassword>admin</slingPassword>
     </properties>
 
-
     <build>
         <plugins>
             <plugin>

@@ -1,12 +1,25 @@
 <%@page session="false" contentType="text/html; charset=utf-8" %>
-<%@page import="org.apache.sling.api.resource.*,
-                org.apache.sling.api.*,
-                utils.*" %>
-<%@ page import="javax.jcr.Node" %>
 <%@ include file="/apps/rested/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
 <%@taglib prefix="q" uri="http://sling.apache.org/taglibs/q/1.0" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sling:defineObjects/>
+=======
+<%--
+/************************************************************************
+ **     $Date: $
+ **   $Source: $
+ **   $Author: $
+ ** $Revision: $
+ ************************************************************************/
+--%><%
+%>
+<%@page session="false" contentType="text/html; charset=utf-8" %>
+<%
+%>
+<%@ include file="/apps/sling-explorer/components/utils.jsp" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
+<%@taglib prefix="q" uri="http://sling.apache.org/taglibs/q/1.0"%>
 <sling:defineObjects/>
 <%
     String requestPath = getRequestPath(slingRequest);
@@ -14,7 +27,7 @@
     pageContext.setAttribute("requestSelector", requestSelector);
     String suffix = slingRequest.getRequestPathInfo().getSuffix();
     String q = request.getParameter("q");
-    pageContext.setAttribute("q",q);
+    pageContext.setAttribute("q", q);
 %>
 
 <table class="table table-condensed pathlist">
@@ -28,7 +41,7 @@
     <tbody>
     <%
         if (q != null) {
-    %> <q:searchByName basePath="/apps|/libs" baseType="nt:file" nodeName="${q}" resultVar="children" />
+    %> <q:searchByName basePath="/apps|/libs" baseType="nt:file" nodeName="${q}" resultVar="children"/>
     <%
     } else {
     %> <sling:listChildren resource="${resource}" var="children"/> <%
@@ -48,7 +61,7 @@
             <td>${type}</td>
             <td>
                 <c:if test="${not empty resourceType}">
-                    ${resourceType} <a href="/.edit.html?q=${param.q}"><i class="icon-search"></i></a>
+                    ${resourceType} <a href="/.edit.html?q=${q}"><i class="icon-search"></i></a>
                 </c:if>
             </td>
             <td>
