@@ -26,25 +26,19 @@
         return children;
     }
 
-    NodeIterator searchNodes(SlingHttpServletRequest req, String q) throws Exception {
-        String queryType = "JCR-SQL2";
-        String statement = buildQuery(q);
-        Session session = req.getResourceResolver().adaptTo(Session.class);
-        QueryManager queryManager = session.getWorkspace().getQueryManager();
-        Query query = queryManager.createQuery(statement, queryType);
-
-        QueryResult result = query.execute();
-        NodeIterator nodeIter = result.getNodes();
-        return nodeIter;
-    }
-
     String iconForType(String type) {
+        if (type == null) {
+            return "icon-minus";
+        }
         if (type.equals("sling:Folder")) return "icon-folder-open";
         else if (type.equals("nt:file")) return "icon-file";
         else return "icon-minus";
     }
 
     boolean isFolder(String type) {
+        if (type == null) {
+            return false;
+        }
         if (type.equals("sling:Folder")) return true;
         else return false;
     }

@@ -42,7 +42,7 @@ public class XpathQueryTag extends TagSupport {
     private String query;
     private String var;
 
-
+    //todo: implement using SearchService
     @Override
     public int doEndTag() throws JspException {
         LOGGER.debug("Executing xpath query {}", query);

@@ -11,7 +11,7 @@
     <tag>
         <description>Performs and XPath query</description>
         <name>xpathQuery</name>
-        <tag-class>org.apache.sling.samples.slingmc.taglib.XpathQueryTag</tag-class>
+        <tag-class>org.apache.sling.explorer.taglib.XpathQueryTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>query</name>
@@ -27,4 +27,36 @@
         </attribute>
     </tag>
 
+    <tag>
+        <description>Searches a node by node name.Returns a NodeIterator containing the list of nodes found according to query.</description>
+        <name>searchByName</name>
+        <tag-class>org.apache.sling.explorer.taglib.SearchByNameTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <description>The base path of the node. The search will be done using ISDESCENDANTNODE(basePath). Defaults to "/"</description>
+            <name>basePath</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The type of the node. Defaults to "nt:base"</description>
+            <name>baseType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>The name of the node</description>
+            <name>nodeName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>Holds the query result set. </description>
+            <name>resultVar</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>
+        
