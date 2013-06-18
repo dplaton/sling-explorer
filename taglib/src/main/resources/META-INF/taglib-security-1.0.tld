@@ -1,0 +1,31 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>A supporting tag library for search functions</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>q</short-name>
+    <uri>http://sling.apache.org/taglibs/security</uri>
+
+    <tag>
+        <description>Used to wrap page content that is only displayed if the user is anonymous</description>
+        <name>isAnonymous</name>
+        <tag-class>org.apache.sling.explorer.taglib.security.IsAnonymousTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+    <tag>
+        <description>Used to wrap page content that is only displayed if the user is authenticated</description>
+        <name>isAuthenticated</name>
+        <tag-class>org.apache.sling.explorer.taglib.security.IsAuthenticatedTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <description>Outputs the current user name</description>
+        <name>currentUser</name>
+        <tag-class>org.apache.sling.explorer.taglib.security.CurrentUserTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+</taglib>

@@ -1,4 +1,4 @@
-package org.apache.sling.explorer.taglib;
+package org.apache.sling.explorer.taglib.query;
 
 /*************************************************************************
  *
