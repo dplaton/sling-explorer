@@ -12,10 +12,10 @@
 %><!DOCTYPE html>
 <html>
 	<head>
-		<sling:include resource="${resource}" replaceSelectors="edit-head"/>
+		<sling:include resource="${resource}" replaceSelectors="head"/>
 	</head>
 	<body>
-		<sling:include resource="${resource}" replaceSelectors="edit-navbar"/>
+        <sling:include resource="${resource}" replaceSelectors="navbar"/>
 		<div class="subnavbar">
 			<sling:include resource="${resource}" replaceSelectors="edit-breadcrumb"/>
 		</div>

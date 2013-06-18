@@ -1,25 +1,8 @@
 <%@page session="false" contentType="text/html; charset=utf-8" %>
-<%@ include file="/apps/rested/components/utils.jsp" %>
+<%@ include file="/apps/sling-explorer/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
 <%@taglib prefix="q" uri="http://sling.apache.org/taglibs/q/1.0" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<sling:defineObjects/>
-=======
-<%--
-/************************************************************************
- **     $Date: $
- **   $Source: $
- **   $Author: $
- ** $Revision: $
- ************************************************************************/
---%><%
-%>
-<%@page session="false" contentType="text/html; charset=utf-8" %>
-<%
-%>
-<%@ include file="/apps/sling-explorer/components/utils.jsp" %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
-<%@taglib prefix="q" uri="http://sling.apache.org/taglibs/q/1.0"%>
 <sling:defineObjects/>
 <%
     String requestPath = getRequestPath(slingRequest);
@@ -61,7 +44,7 @@
             <td>${type}</td>
             <td>
                 <c:if test="${not empty resourceType}">
-                    ${resourceType} <a href="/.edit.html?q=${q}"><i class="icon-search"></i></a>
+                    ${resourceType} <a href="/.edit.html?q=${resourceType}"><i class="icon-search"></i></a>
                 </c:if>
             </td>
             <td>

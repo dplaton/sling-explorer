@@ -16,6 +16,7 @@
 			<a class="btn" href="${resource.path}.properties.html"><i class="icon-edit"></i> properties</a>
 		</div>
 		<span class="pull-right">
+        <!-- the search box for the current folder -->
 		<div class="input-append">
 			<input type="text" name="q" class="input-small search-query" value="${param.q}">
 			<button class="btn" type="submit"><i class="icon-search"></i></button>
