@@ -24,7 +24,7 @@
     <tbody>
     <%
         if (q != null) {
-    %> <q:searchByName basePath="/apps|/libs" baseType="nt:file" nodeName="${q}" resultVar="children"/>
+    %> <q:searchByName basePath="/apps|/libs" baseType="nt:base" nodeName="${q}" resultVar="children"/>
     <%
     } else {
     %> <sling:listChildren resource="${resource}" var="children"/> <%
@@ -49,7 +49,7 @@
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <sling:include path="${resource.path}" replaceSelectors="edit-pathlist-actions"/>
+                    <sling:include path="${resource.path}" replaceSelectors="pathlist-actions"/>
                 </div>
             </td>
         </tr>

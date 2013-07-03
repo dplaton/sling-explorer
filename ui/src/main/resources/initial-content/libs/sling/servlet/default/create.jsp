@@ -1,17 +1,13 @@
 <%--
-/************************************************************************
- **     $Date: $
- **   $Source: $
- **   $Author: $
- ** $Revision: $
- ************************************************************************/
---%><%
-%><%@page session="false" contentType="text/html; charset=utf-8" %><%
-%><%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %><%
-%><sling:defineObjects /><%
+    Node creation page.
+
+--%>
+<%@page session="false" contentType="text/html; charset=utf-8" %><%
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<sling:defineObjects />
 %><!DOCTYPE html>
 <html>
-	<sling:include resource="${resource}" replaceSelectors="edit-head"/>
+	<sling:include resource="${resource}" replaceSelectors="head"/>
 	<body style="background-color:gray">
 		<div class="container-fluid">
 			<div class="modal">
