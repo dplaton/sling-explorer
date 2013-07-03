@@ -10,7 +10,6 @@
         <input id="node_name" type="text" name=":name" value="" required placeholder="node name"/>
         <textarea name=":content"></textarea>
 
-        <button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i></button>
         <input type="hidden" name=":redirect" value="<%=resource.getPath()%>.edit.html" />
         <input type="hidden" name=":errorpage" value="<%=slingRequest.getRequestURL()%>" />
     </fieldset>
