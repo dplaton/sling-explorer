@@ -7,16 +7,30 @@
  ************************************************************************/
 --%><%
 %><%@page session="false" contentType="text/html; charset=utf-8" %><%
-%><%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %><%
-%><sling:defineObjects /><% 
+%><%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<sling:defineObjects />
 
-	if (resource.getChildren().iterator().hasNext()) { %>
-		<sling:include resource="<%=resource%>" replaceSelectors="edit-pathlist"/>
-	<% } else { %>
-		<div class="alert alert-info">
-			<a href="#" class="close"><i class="icon-circle-arrow-left"></i></a>
-			<p>
-			<h4 class="text-center">this node has no children</h4>
-			<p>
-		</div>
-	<% } %>
+<div class="row-fluid">
+    <!--
+    <div class="col-lg-4">
+        <h3>Tree navigation goes here</h3>
+    </div> -->
+    <!-- <div class="col-lg-8"> -->
+
+        <sling:include resource="${resource}" replaceSelectors="edit-toolbar"/>
+    <%
+    if (resource.getChildren().iterator().hasNext()) { %>
+        <sling:include resource="<%=resource%>" replaceSelectors="edit-pathlist"/>
+    <% } else { %>
+     <div class="row-fluid">
+        <div class="alert alert-info">
+            <a href="#" class="close"><i class="icon-circle-arrow-left"></i></a>
+            <p>
+                <h4 class="text-center">This node has no children</h4>
+            <p>
+        </div>
+     </div>
+    <% } %>
+</div>
+
+

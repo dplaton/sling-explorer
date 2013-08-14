@@ -1,8 +1,16 @@
+.container-fluid {
+    padding-left: 20px;
+    padding-right:20px;
+}
+
 .search-form-container {
     padding-top: 30px;
     padding-left: 20px
 }
-.search-form-container input[type="text"] { width:auto }
+.search-form-container input[type="text"] { width: auto }
+
+.form-inline input { width: 200px }
+
 .component {
     cursor: move;
 }

@@ -1,19 +1,18 @@
 <%@ page import="org.apache.sling.additions.service.SearchService" %>
 <%@ page import="org.apache.sling.api.resource.Resource" %>
-<%@ page import="javax.jcr.RepositoryException" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="javax.jcr.query.InvalidQueryException" %>
 
 <%@ page session="false" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
-<%@ taglib prefix="q" uri="http://sling.apache.org/taglibs/q/1.0" %>
+<%@ taglib prefix="q" uri="http://sling.apache.org/taglibs/q" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <sling:defineObjects/>
 <!DOCTYPE html>
 <html>
 <head>
-    <sling:include resource="${resource}" replaceSelectors="edit-head"/>
+    <sling:include resource="${resource}" replaceSelectors="head"/>
 </head>
 <body>
     <sling:include resource="${resource}" replaceSelectors="navbar"/>

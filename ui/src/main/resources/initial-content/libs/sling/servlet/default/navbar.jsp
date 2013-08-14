@@ -13,11 +13,11 @@
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href="/">Sling Explorer</a>
+            <a class="navbar-brand" href="/">Sling Explorer</a>
             <div class="nav-collapse collapse">
-                <ul class="nav">
+                <ul class="nav navbar-nav">
                     <li class="">
-                        <a href="/">Home</a>
+                        <a href="/.edit.html">Home</a>
                     </li>
                     <li class="">
                         <a href="/system/console" target="_blank">Console</a>
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div class="nav-collapse collapse" style="float:right">
-                <ul class="nav">
+                <ul class="nav navbar-nav">
                     <li class="">
                         <a href="#"><i class="icon-user icon-white"></i>&nbsp;<sec:currentUser/></a>
                     </li>

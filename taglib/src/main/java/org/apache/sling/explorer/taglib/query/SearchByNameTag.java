@@ -72,6 +72,9 @@ public class SearchByNameTag extends TagSupport {
         query.append("[").append(baseType).append("] AS N ");
         query.append("WHERE ");
 
+        query.append(" contains(N.*,'").append(nodeName).append("') OR ");
+        query.append(" LOCALNAME(N) LIKE '%").append(nodeName).append("%' AND ");
+
         int cntPaths = basePaths.length;
         int idx = 0;
         for (String basePath : basePaths) {

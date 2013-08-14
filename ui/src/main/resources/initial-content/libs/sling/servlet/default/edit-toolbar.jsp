@@ -13,37 +13,42 @@
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
 <%@taglib prefix="sec" uri="http://sling.apache.org/taglibs/security" %>
 <sling:defineObjects/>
-
-<ul class="nav nav-pills">
-    <sec:isAuthenticated>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="create-label" data-toggle="dropdown"><i class="icon-plus"></i>
-                Create Node <b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="create-label">
-                <li><a role="menuitem" data-toggle="modal" href="${resource.path}.create-body.html"
-                       data-target="#create-modal">Manual</a></li>
-                <li><a role="menuitem" href="${resource.path}.create-upload-json.html" data-toggle="modal"
-                       data-target="#import-json-modal">Import JSON file</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="${resource.path}.create-upload-file.html" data-toggle="modal" data-target="#upload-file-modal"
-               role="menuitem"><i class="icon-upload"></i> Upload file</a>
-        </li>
-    </sec:isAuthenticated>
-    <li>
-        <a href="${resource.path}.properties.html"><i class="icon-edit"></i> Properties</a>
-    </li>
-</ul>
+<div class="row">
+    <div class="col-lg-4">
+        <ul class="nav nav-pills">
+            <sec:isAuthenticated>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="create-label" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>
+                        Create Node <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="create-label">
+                        <li><a role="menuitem" data-toggle="modal" href="${resource.path}.create-body.html"
+                               data-target="#create-modal">Manual</a></li>
+                        <li><a role="menuitem" href="${resource.path}.create-import-json.html" data-toggle="modal"
+                               data-target="#import-json-modal">Import JSON file</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="${resource.path}.create-upload-file.html" data-toggle="modal" data-target="#upload-file-modal"
+                       role="menuitem"><i class="glyphicon glyphicon-upload"></i> Upload file</a>
+                </li>
+            </sec:isAuthenticated>
+            <li>
+                <a href="${resource.path}.properties.html"><i class="glyphicon glyphicon-edit"></i> Properties</a>
+            </li>
+        </ul>
+     </div>
+    <div class="col-lg-8">
 		<span class="pull-right">
         <!-- the search box for the current folder -->
         <form class="form-search form-inline">
             <div class="input-append">
-                <input type="text" name="q" class="input-small search-query" value="${param.q}">
-                <button class="btn" type="submit"><i class="icon-search"></i></button>
+                <input type="text" class="form-control" name="q" class="input-small search-query" value="${param.q}">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </form>
 		</span>
+    </div>
+</div>
 
 <div id="create-modal" class="modal hide fade" tabindex="-1" role="dialog">
     <div class="modal-header">

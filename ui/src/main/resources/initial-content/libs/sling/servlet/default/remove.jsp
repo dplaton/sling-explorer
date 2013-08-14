@@ -20,7 +20,7 @@
 
 %><!DOCTYPE html>
 <html>
-	<sling:include resource="<%=resource%>" replaceSelectors="edit-head"/>
+	<sling:include resource="<%=resource%>" replaceSelectors="head"/>
 	<body style="background-color:gray">
 		<form id="PATHSFORM" method="POST" action="<%=resource.getPath()%>" enctype="MULTIPART/FORM-DATA">
 			<div class="container-fluid">

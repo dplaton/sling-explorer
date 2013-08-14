@@ -21,7 +21,7 @@ if (resource.getParent() != null) parentPath = resource.getParent().getPath();
 
 %><!DOCTYPE html>
 <html>
-	<sling:include resource="<%=resource%>" replaceSelectors="edit-head"/>
+	<sling:include resource="<%=resource%>" replaceSelectors="head"/>
 	<body style="background-color:gray">
 		<div class="container-fluid">
 			<div class="modal">

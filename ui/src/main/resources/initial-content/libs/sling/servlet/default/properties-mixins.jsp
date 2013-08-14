@@ -24,16 +24,16 @@
 
 %>
 <div class="control-group">
- <label class="control-label" for="sling:resourceType">jcr:mixinTypes</label>
- <input type="hidden" name="jcr:mixinTypes@Delete" value="true"/>
- <% for (int i = 0; i < values.length; i++) { %>
- <div class="controls">
-		<input type="hidden" name="jcr:mixinTypes" value="<%=values[i]%>" />
-		<div style="vertical-align:middle;padding:4px;display:inline-block;border:solid 1px lightgray"><%= values[i]%></div>
-		<button class="btn btn-danger" type="submit" name="jcr:mixinTypes@DeleteValue" value="<%=values[i]%>"><i class="icon-trash icon-white"></i></button>
- </div>
- <% } %>
- <div class="controls">
+    <label class="control-label" for="sling:resourceType">jcr:mixinTypes</label>
+    <input type="hidden" name="jcr:mixinTypes@Delete" value="true"/>
+    <% for (int i = 0; i < values.length; i++) { %>
+        <div class="controls">
+            <input type="hidden" name="jcr:mixinTypes" value="<%=values[i]%>" />
+            <div style="vertical-align:middle;padding:4px;display:inline-block;border:solid 1px lightgray"><%= values[i]%></div>
+            <button class="btn btn-danger" type="submit" name="jcr:mixinTypes@DeleteValue" value="<%=values[i]%>"><i class="icon-trash icon-white"></i></button>
+        </div>
+    <% } %>
+    <div class="controls">
 		<select name=":mixin_type" style="height:26px">
 			<% for (;types.hasNext();) { 
 				NodeType nt = types.nextNodeType();

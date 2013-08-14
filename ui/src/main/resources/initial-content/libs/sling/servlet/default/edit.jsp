@@ -11,20 +11,17 @@
     </head>
     <body>
     <sling:include resource="${resource}" replaceSelectors="navbar"/>
-    <div class="subnavbar">
+    <div class="subnav">
         <sling:include resource="${resource}" replaceSelectors="edit-breadcrumb"/>
     </div>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <h3>${resource.name}</h3>
-        </div>
+        <h3>${resource.name}</h3>
         <div class="row-fluid">
             <div class="span12">
-                <sling:include resource="${resource}" replaceSelectors="edit-toolbar"/>
+                <sling:include resource="${resource}" replaceSelectors="errorbar"/>
             </div>
         </div>
             <div class="row-fluid">
-                <sling:include resource="${resource}" replaceSelectors="errorbar"/>
                 <sling:include resource="${resource}" replaceSelectors="edit-body"/>
             </div>
         </div>
