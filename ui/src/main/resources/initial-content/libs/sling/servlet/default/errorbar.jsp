@@ -14,12 +14,13 @@
 	if (error != null) {
 		%>
 		<div class="alert alert-error">
-		<a href="<%=slingRequest.getRequestURL()%>" class="close">&times;</a>
-		<strong>Error while saving data!</strong>
-		<%= error %>
-		<p>
-		You may have to <a href="<%= resource.getPath() %>.authenticate.html">login</a> before making any changes.
-		</div>
+		    <a href="<%=slingRequest.getRequestURL()%>" class="close">&times;</a>
+		    <strong>Error while saving data!</strong>
+		    <%= error %>
+	    	<p>
+		        You may have to <a href="<%= resource.getPath() %>.authenticate.html">login</a> before making any changes.
+		    </p>
+        </div>
 		<%
 	}
 %>

@@ -13,7 +13,7 @@
     pageContext.setAttribute("q", q);
 %>
 
-<table class="table table-condensed pathlist">
+<table class="table table-striped table-condensed pathlist">
     <thead>
     <th class="nodetype"></th>
     <th>Name</th>
@@ -36,7 +36,7 @@
         <sling:getProperty properties="${valueMap}" key="sling:resourceType" var="resourceType"/>
         <tr>
             <td>
-                <i class="<%=iconForType((String)pageContext.getAttribute("type"))%>"></i>
+                <i class="glyphicon <%=iconForType((String)pageContext.getAttribute("type"))%>"></i>
             </td>
             <td>
                 <a href="${item.path}.${requestSelector}">${item.name}<%=(isFolder((String)pageContext.getAttribute("type")) ? "/":"")%> </a>
@@ -44,12 +44,12 @@
             <td>${type}</td>
             <td>
                 <c:if test="${not empty resourceType}">
-                    ${resourceType} <a href="/.edit.html?q=${resourceType}"><i class="icon-search"></i></a>
+                    ${resourceType} <a href="/.edit.html?q=${resourceType}"><i class="glyphicon glyphicon-search"></i></a>
                 </c:if>
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <sling:include path="${resource.path}" replaceSelectors="pathlist-actions"/>
+                    <sling:include path="${item.path}" replaceSelectors="pathlist-actions"/>
                 </div>
             </td>
         </tr>

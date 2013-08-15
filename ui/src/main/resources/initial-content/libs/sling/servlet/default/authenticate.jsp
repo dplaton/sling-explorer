@@ -17,6 +17,11 @@
 <html>
 <sling:include resource="${resource}" replaceSelectors="head"/>
 <body>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">Sling Explorer</a>
+    </div>
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5"></div>

@@ -1,10 +1,20 @@
+<%@ page import="org.apache.sling.api.resource.ValueMap" %>
 <%--
     Main page for the edit
 --%>
 <%@page session="false" contentType="text/html; charset=utf-8" %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.2" %>
 <sling:defineObjects/>
 <!DOCTYPE html>
+<%
+    String title = resource.getName();
+
+    //retrieve the resource title, since the taglib for that is still in development
+    ValueMap properties = resource.adaptTo(ValueMap.class);
+    if (properties != null && properties.containsKey("jcr:title")) {
+        title = properties.get("jcr:title").toString();
+    }
+%>
 <html>
     <head>
         <sling:include resource="${resource}" replaceSelectors="head"/>
@@ -15,7 +25,9 @@
         <sling:include resource="${resource}" replaceSelectors="edit-breadcrumb"/>
     </div>
     <div class="container-fluid">
-        <h3>${resource.name}</h3>
+        <h3>
+            <%= title%>
+        </h3>
         <div class="row-fluid">
             <div class="span12">
                 <sling:include resource="${resource}" replaceSelectors="errorbar"/>

@@ -14,43 +14,51 @@
     String ptype = map.get("jcr:primaryType", "");
 
 %>
-<div class="control-group">
-    <label class="control-label" for="sling:resourceType">sling:resourceType</label>
+<FORM ID="EDIT_RENDERING_PROPERTIES_FORM" class="form-horizontal" METHOD="POST" ACTION="<%= resource.getPath() %>"
+      ENCTYPE="MULTIPART/FORM-DATA">
+    <input type="hidden" name=":redirect" value="<%=slingRequest.getRequestURL()%>"/>
+    <input type="hidden" name=":errorpage" value="<%=slingRequest.getRequestURL()%>"/>
 
-    <div class="controls">
-        <input id="sling:resourceType" type="text" name="sling:resourceType" value="<%= rtype %>"/>
-		<span class="help-inline">
-			<div class="btn-group">
+    <div class="form-group">
+        <label class="col-lg-3 control-label" for="sling:resourceType">sling:resourceType</label>
+
+        <div class="input-group col-lg-9">
+            <input id="sling:resourceType" class="form-control" type="text" name="sling:resourceType"
+                   value="<%= rtype %>"/>
+
+            <span class="input-group-btn">
+             <button class="btn" type="submit" name=":redirect"
+                     VALUE="<%= resource.getPath() %>.create-selector.html?type=sling:resourceType"><i
+                     class="glyphicon glyphicon-pencil"></i></button>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-lg-3" for="sling:resourceSuperType">sling:resourceSuperType</label>
+
+        <div class="input-group col-lg-9">
+            <input id="sling:resourceSuperType" class="form-control" type="text" name="sling:resourceSuperType"
+                   value="<%= rstype %>"/>
+		    <span class="input-group-btn">
                 <button class="btn" type="submit" name=":redirect"
-                        VALUE="<%= resource.getPath() %>.create-selector.html?type=sling:resourceType"><i
-                        class="icon-pencil icon-white"></i></BUTTON>
-            </div>
-		</span>
+                        VALUE="<%= resource.getPath() %>.create-selector.html?type=sling:resourceSuperType">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </button>
+		    </span>
+        </div>
     </div>
-</div>
 
-<div class="control-group">
-    <label class="control-label" for="sling:resourceSuperType">sling:resourceSuperType</label>
+    <div class="form-group">
+        <label class="control-label col-lg-3" for="jcr:primaryType">jcr:primaryType</label>
 
-    <div class="controls">
-        <input id="sling:resourceSuperType" type="text" name="sling:resourceSuperType" value="<%= rstype %>"/>
-		<span class="help-inline">
-			<div class="btn-group">
-                <button class="btn" type="submit" name=":redirect"
-                        VALUE="<%= resource.getPath() %>.create-selector.html?type=sling:resourceSuperType"><i
-                        class="icon-pencil icon-white"></i></BUTTON>
-            </div>
-		</span>
+        <div class="input-group col-lg-9">
+            <input class="form-control" value="<%=ptype%>" readonly="readonly">
+            <span class="input-group-btn">
+            <button class="btn" type="submit" name=":redirect"
+                    VALUE="<%= resource.getPath() %>.create-selector.html?type=jcr:primaryType"><i
+                    class="glyphicon glyphicon-pencil"></i></BUTTON>
+             </span>
+        </div>
     </div>
-</div>
-
-<div class="control-group">
-    <label class="control-label" for="jcr:primaryType">jcr:primaryType</label>
-
-    <div class="controls">
-        <span style="vertical-align:middle;padding:4px;display:inline-block;border:solid 1px lightgray"><%=ptype%></span>
-        <button class="btn" type="submit" name=":redirect"
-                VALUE="<%= resource.getPath() %>.create-selector.html?type=jcr:primaryType"><i
-                class="icon-pencil icon-white"></i></BUTTON>
-    </div>
-</div>
+</form>

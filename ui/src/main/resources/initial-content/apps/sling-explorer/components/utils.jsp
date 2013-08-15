@@ -28,11 +28,11 @@
 
     String iconForType(String type) {
         if (type == null) {
-            return "icon-minus";
+            return "glyphicon-minus";
         }
-        if (type.equals("sling:Folder")) return "icon-folder-open";
-        else if (type.equals("nt:file")) return "icon-file";
-        else return "icon-minus";
+        if (type.equals("sling:Folder")) return "glyphicon-folder-open";
+        else if (type.equals("nt:file")) return "glyphicon-file";
+        else return "glyphicon-minus";
     }
 
     boolean isFolder(String type) {
