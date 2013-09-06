@@ -69,7 +69,7 @@
                     <div class="col-sm-5">
                         <button class="btn btn-success" type="submit" name="jcr:mixinTypes@ValueFrom"
                                 value=":mixin_type">
-                            <i class="glyphicon-plus icon-white"></i></button>
+                            <i class="glyphicon glyphicon-plus glyphicon-white"></i></button>
                     </div>
                 </div>
             </div>

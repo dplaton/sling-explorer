@@ -24,7 +24,7 @@
     <% } else { %>
      <div class="row-fluid">
         <div class="alert alert-info">
-            <a href="#" class="close"><i class="icon-circle-arrow-left"></i></a>
+            <a href="#" class="close"><i class="glyphicon glyphicon-circle-arrow-left"></i></a>
             <p>
                 <h4 class="text-center">This node has no children</h4>
             <p>

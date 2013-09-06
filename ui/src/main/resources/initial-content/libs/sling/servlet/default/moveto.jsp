@@ -54,7 +54,7 @@ if (resource.getParent() != null) parentPath = resource.getParent().getPath();
 							<a href="<%= parentPath + ".edit.html" %>" class="btn">Cancel</a>
 							<input type="hidden" name=":operation" value="move" />
 							<input type="hidden" name=":dest" value="<%=res.getPath()+"/"%>" />
-							<button class="btn btn-primary" type="submit"><i class="icon-white icon-arrow-right"></i> Move</button>
+							<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-white glyphicon-arrow-right"></i> Move</button>
 						</div>
 				</div>
 			</FORM>

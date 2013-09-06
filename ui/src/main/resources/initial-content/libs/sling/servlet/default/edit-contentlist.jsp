@@ -39,7 +39,7 @@
 <div>
     <hr/>
     <div>
-        <div class="pull-right"><a href="<%=res.getPath()%>.edit.html"><i class="icon-pencil"></i></a></div>
+        <div class="pull-right"><a href="<%=res.getPath()%>.edit.html"><i class="glyphicon glyphicon-pencil"></i></a></div>
     </div>
     <sling:include resource="<%=res%>" replaceSelectors="html"/>
 </div>

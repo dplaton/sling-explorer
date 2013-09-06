@@ -38,7 +38,7 @@ String suffix = slingRequest.getRequestPathInfo().getSuffix();
 			else path = path + "." + requestSelector;
 	%>
 			<tr>
-				<td><i class="<%=iconForType(type)%>"></i></td>
+				<td><i class="glyphicon <%=iconForType(type)%>"></i></td>
 				<td><a href="<%=path%>"><%=name + (isFolder(type)?"/":"")%></a></td>
 				<td><%=type%></td>
 			</tr>
