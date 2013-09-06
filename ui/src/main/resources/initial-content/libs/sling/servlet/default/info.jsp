@@ -13,7 +13,7 @@
                 javax.jcr.*,
                 org.apache.sling.api.resource.*"
 %><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
 <sling:defineObjects />
 <!DOCTYPE html>
 <html>
@@ -55,7 +55,7 @@
             ${child.path} ${child.resourceType}<br/>
         </c:forEach>
 
-        <sling:getProperties var="properties" resource="${resource}"/>
+        <sling:adaptTo adaptable="${resource}" adaptTo="org.apache.sling.api.resource.ValueMap" var="properties"/>
         <c:forEach var="prop" items="${properties}">
             ${prop.key} = ${prop.value}<br/>
         </c:forEach>

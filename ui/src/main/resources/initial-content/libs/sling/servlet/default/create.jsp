@@ -18,7 +18,7 @@
         </div>
 
         <div class="modal-body">
-            <div class="alert alert-info"><i class="icon-folder-open"></i> ${resource.path}</div>
+            <div class="alert alert-info"><i class="glyphicon glyphicon-folder-open"></i> ${resource.path}</div>
             <sling:include resource="${resource}" replaceSelectors="create-body"/>
         </div>
         <div class="modal-footer">
