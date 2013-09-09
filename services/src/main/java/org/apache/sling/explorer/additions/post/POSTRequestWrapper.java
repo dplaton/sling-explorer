@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package org.apache.sling.additions.post;
+package org.apache.sling.explorer.additions.post;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.request.RequestParameter;
@@ -32,9 +32,9 @@ public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
     private static final String DELETE_VALUE_SUFFIX="@DeleteValue";
     private static final String VALUE_FROM_SUFFIX="@ValueFrom";
 
-    private org.apache.sling.additions.post.ParameterMap mypars;
+    private ParameterMap mypars;
 
-    static void dump(org.apache.sling.additions.post.ParameterMap pars) {
+    static void dump(ParameterMap pars) {
         Iterator it = pars.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry vp = (Map.Entry) it.next();
@@ -54,7 +54,7 @@ public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
     public POSTRequestWrapper(SlingHttpServletRequest req) {
         super(req);
         RequestParameterMap pars = super.getRequestParameterMap();
-        mypars = new org.apache.sling.additions.post.ParameterMap();
+        mypars = new ParameterMap();
 
         Iterator it = pars.entrySet().iterator();
         while (it.hasNext()) {
