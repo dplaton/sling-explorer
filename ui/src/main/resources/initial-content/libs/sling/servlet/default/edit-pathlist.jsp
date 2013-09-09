@@ -1,3 +1,5 @@
+<%@ page import="org.apache.sling.api.request.RequestUtil" %>
+<%@ page import="org.apache.sling.api.servlets.ServletResolver" %>
 <%@page session="false" contentType="text/html; charset=utf-8" %>
 <%@ include file="/apps/sling-explorer/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
@@ -23,8 +25,9 @@
     </thead>
     <tbody>
     <%
+        ServletResolver servletResolver = sling.getService(ServletResolver.class);
         if (q != null) {
-    %> <q:searchByName basePath="/apps|/libs" baseType="nt:base" nodeName="${q}" resultVar="children"/>
+    %> <q:searchByName basePath="${resource.path}" baseType="nt:base" nodeName="${q}" resultVar="children"/>
     <%
     } else {
     %> <sling:listChildren resource="${resource}" var="children"/> <%
@@ -36,10 +39,10 @@
         <sling:getProperty properties="${valueMap}" key="sling:resourceType" var="resourceType"/>
         <tr>
             <td>
-                <i class="glyphicon <%=iconForType((String)pageContext.getAttribute("type"))%>"></i>
+                <i class="glyphicon <%= iconForType((String)pageContext.getAttribute("type"))%>"></i>
             </td>
             <td>
-                <a href="${item.path}.${requestSelector}">${item.name}<%=(isFolder((String)pageContext.getAttribute("type")) ? "/":"")%> </a>
+                <a href="${item.path}.${requestSelector}">${item.name}<%= (isFolder((String)pageContext.getAttribute("type")) ? "/":"")%> </a>
             </td>
             <td>${type}</td>
             <td>

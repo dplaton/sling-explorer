@@ -13,7 +13,7 @@
 <%@page import="org.apache.sling.api.resource.*,
                 java.util.*" %>
 <%@ include file="/apps/sling-explorer/components/utils.jsp" %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
 <%
 %><sling:defineObjects/><%
     String type = slingRequest.getParameter("type");

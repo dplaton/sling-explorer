@@ -15,59 +15,56 @@
     <sling:include resource="${resource}" replaceSelectors="head"/>
 </head>
 <body>
-    <sling:include resource="${resource}" replaceSelectors="navbar"/>
+<sling:include resource="${resource}" replaceSelectors="navbar"/>
 
-    <div class="container-fluid">
-        <div class="search-form-container">
-        <form id="searchForm" method="GET" action=".search.html" class="form-horizontal search-form">
-            <div class="control-group">
+<div class="container-fluid">
+    <div class="search-form-container">
+        <form class="form-inline" id="searchForm" method="GET" action=".search.html">
+            <div class="form-group">
                 <label class="control-label" for="query">SQL2 query: </label>
-
-                <div class="controls">
-                    <input type="text" id="query" name="q" value="${param.q}" size="80"/>
-                    <button class="btn btn-success" type="submit">
-                        Execute query
-                    </button>
-                </div>
+                <textarea rows="3" class="form-control" id="query" name="q" cols="80">${param.q}</textarea>
+                <button class="btn btn-success" type="submit">
+                    Execute query
+                </button>
             </div>
         </form>
-        </div>
-        <c:if test="${not empty param.q}">
-            <%
-                try {
-                    SearchService searchService = sling.getService(SearchService.class);
-                    Iterator<Resource> nodeList = searchService.searchNodes(resourceResolver, slingRequest.getParameter("q"));
-                    pageContext.setAttribute("nodeList", nodeList);
-
-            %>
-            <table class="table table-condensed pathlist">
-                <thead>
-                    <th>Path</th>
-                    <th>Actions</th>
-                </thead>
-                <tbody>
-                <c:forEach items="${nodeList}" var="item">
-                    <tr>
-                        <td><a href="${item.path}.edit.html">${item.path}</a></td>
-                        <td>
-                            <div class="btn-group">
-                                <sling:include path="${resource.path}" replaceSelectors="pathlist-actions"/>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <% } catch (InvalidQueryException e) { %>
-
-                <div class="alert alert-error">
-                    <%= e.getMessage() %>
-                </div>
-
-            <% }   %>
-
-        </c:if>
     </div>
+    <c:if test="${not empty param.q}">
+        <%
+            try {
+                SearchService searchService = sling.getService(SearchService.class);
+                Iterator<Resource> nodeList = searchService.searchNodes(resourceResolver, slingRequest.getParameter("q"));
+                pageContext.setAttribute("nodeList", nodeList);
+
+        %>
+        <table class="table table-condensed pathlist">
+            <thead>
+            <th>Path</th>
+            <th>Actions</th>
+            </thead>
+            <tbody>
+            <c:forEach items="${nodeList}" var="item">
+                <tr>
+                    <td><a href="${item.path}.edit.html">${item.path}</a></td>
+                    <td>
+                        <div class="btn-group">
+                            <sling:include path="${resource.path}" replaceSelectors="pathlist-actions"/>
+                        </div>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+        <% } catch (InvalidQueryException e) { %>
+
+        <div class="alert alert-error">
+            <%= e.getMessage() %>
+        </div>
+
+        <% } %>
+
+    </c:if>
+</div>
 </body>
 
 </html>

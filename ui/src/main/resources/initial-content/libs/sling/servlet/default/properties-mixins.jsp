@@ -20,6 +20,7 @@
 <%
 %>
 <%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<%@ taglib prefix="sec" uri="http://sling.apache.org/taglibs/security"%>
 <%
 %><sling:defineObjects/><%
 
@@ -43,12 +44,12 @@
                 <div class="input-group">
                     <input type="hidden" name="jcr:mixinTypes" value="<%=values[i]%>"/>
                     <input class="form-control" value="<%= values[i]%>" readonly="readonly">
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="submit" name="jcr:mixinTypes@DeleteValue"
-                                value="<%=values[i]%>">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </button>
-                    </span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="submit" name="jcr:mixinTypes@DeleteValue"
+                                    value="<%=values[i]%>">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </span>
                 </div>
                 <% } %>
             </div>
@@ -66,11 +67,13 @@
                             <% } %>
                         </select>
                     </div>
+                    <sec:isAuthenticated>
                     <div class="col-sm-5">
                         <button class="btn btn-success" type="submit" name="jcr:mixinTypes@ValueFrom"
                                 value=":mixin_type">
                             <i class="glyphicon glyphicon-plus glyphicon-white"></i></button>
                     </div>
+                    </sec:isAuthenticated>
                 </div>
             </div>
         </div>

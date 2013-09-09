@@ -27,7 +27,7 @@
     <fieldset>
         <legend>Node data</legend>
         <div class="form-group">
-            <label class="control-label" for="node_name">Node name</label>
+            <label class="control-label" for="node_name">Node name:</label>
 
             <div class="controls">
                 <input id="node_name" class="form-control" type="text" name=":name" value="" required placeholder="node name"/>
@@ -36,6 +36,11 @@
 
         <input type="hidden" name=":operation" value="import"/>
         <input type="hidden" name=":contentType" value="json"/>
+
+        <div class="form-group">
+            <label class="control-label" for="resourceType">Resource type:</label>
+            <input id="resourceType" name="./sling:resourceType" class="form-control" type="text"/>
+        </div>
 
         <div class="form-group">
             <label class="control-label" for="node_type">Node type:</label>

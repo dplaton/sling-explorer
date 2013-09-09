@@ -14,7 +14,7 @@
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Sling Explorer</a>
+            <span class="navbar-brand" href="#">Sling Explorer</span>
             <ul class="nav navbar-nav">
                 <li class="">
                     <a href="/.edit.html">Home</a>

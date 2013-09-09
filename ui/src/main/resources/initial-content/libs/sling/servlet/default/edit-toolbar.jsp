@@ -10,7 +10,7 @@
 <%@page session="false" contentType="text/html; charset=utf-8" %>
 <%
 %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.2" %>
 <%@taglib prefix="sec" uri="http://sling.apache.org/taglibs/security" %>
 <sling:defineObjects/>
 <div class="row">
