@@ -11,8 +11,8 @@
 %><sling:defineObjects />
 			<div class="btn-toolbar">
 				<div class="btn-group">
-					<a class="btn" href="<%=resource.getPath() + "/_jcr_content.edit.html"%>"><i class="icon-chevron-right"></i> view jcr:content</a>
-					<a class="btn" href="<%=resource.getPath() + ".properties.html"%>"><i class="icon-edit"></i> properties</a>
+					<a class="btn" href="<%=resource.getPath() + "/_jcr_content.edit.html"%>"><i class="glyphicon glyphicon-chevron-right"></i> view jcr:content</a>
+					<a class="btn" href="<%=resource.getPath() + ".properties.html"%>"><i class="glyphicon glyphicon-edit"></i> properties</a>
 				</div>
 				<a class="btn" target="preview" href="<%=resource.getPath()%>.html">preview</a>
 			</div>

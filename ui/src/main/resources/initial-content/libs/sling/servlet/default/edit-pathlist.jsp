@@ -1,6 +1,6 @@
 <%@page session="false" contentType="text/html; charset=utf-8" %>
 <%@ include file="/apps/sling-explorer/components/utils.jsp" %>
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.3" %>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
 <%@taglib prefix="q" uri="http://sling.apache.org/taglibs/q" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <sling:defineObjects/>

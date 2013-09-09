@@ -30,7 +30,7 @@
     <input type="hidden" name=":errorpage" value="<%=slingRequest.getRequestURL()%>"/>
 
     <ul class="breadcrumb">
-        <li><i class="icon-home"></i></li>
+        <li><i class="glyphicon glyphicon-home"></i></li>
         <%
 
             ArrayList<Resource> v = new ArrayList<Resource>();
