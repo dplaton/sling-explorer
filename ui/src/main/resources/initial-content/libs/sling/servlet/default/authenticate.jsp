@@ -22,6 +22,12 @@
         <a class="navbar-brand" href="/">Sling Explorer</a>
     </div>
 </div>
+<%
+    String returnTo = slingRequest.getParameter("returnTo");
+    if (returnTo == null || "".equals(returnTo)) {
+        returnTo = resource.getPath() + ".edit.html";
+    }
+%>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5"></div>
@@ -31,7 +37,7 @@
                     <legend><h3>Login</h3></legend>
 
                     <input type="hidden" name="_charset_" value="UTF-8">
-                    <input type="hidden" name="resource" value="${resource.path}.edit.html">
+                    <input type="hidden" name="resource" value="<%=returnTo%>">
                     <input type="hidden" name="selectedAuthType" value="form">
 
                     <div class="form-group">
