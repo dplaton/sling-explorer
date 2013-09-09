@@ -3,6 +3,15 @@ Sling Content Explorer
 
 As the name says, this is a "Content Explorer" for [Apache Sling][1].
 
+Features (so far):
+---
+* Basic drill-down navigation
+* Node creation via JSON import, file upload and "manual" definition
+* Update operations on nodes and properties
+* Node deletions
+* Basic search using SQL2 queries 
+
+
 Usage
 ---
 
