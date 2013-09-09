@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package org.apache.sling.explorer.additions.post;
+package org.apache.sling.explorer.post;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.request.RequestParameter;

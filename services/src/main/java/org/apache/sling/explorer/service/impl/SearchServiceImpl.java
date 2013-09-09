@@ -1,8 +1,8 @@
-package org.apache.sling.explorer.additions.service.impl;
+package org.apache.sling.explorer.service.impl;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.explorer.additions.service.SearchService;
+import org.apache.sling.explorer.service.SearchService;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.slf4j.Logger;

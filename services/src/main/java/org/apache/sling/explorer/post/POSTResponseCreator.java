@@ -15,7 +15,7 @@
  * the License.
  */
 
-package org.apache.sling.explorer.additions.post;
+package org.apache.sling.explorer.post;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;

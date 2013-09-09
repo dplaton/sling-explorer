@@ -1,4 +1,4 @@
-package org.apache.sling.explorer.additions.service;
+package org.apache.sling.explorer.service;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
