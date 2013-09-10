@@ -18,3 +18,5 @@
 
 <script type="text/javascript" src="/apps/sling-explorer/jquery-1.10.1.min.js"></script>
 <script src="/apps/sling-explorer/bootstrap/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/apps/sling-explorer/sling-explorer.css">

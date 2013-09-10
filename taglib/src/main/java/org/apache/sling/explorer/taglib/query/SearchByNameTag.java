@@ -18,7 +18,7 @@ package org.apache.sling.explorer.taglib.query;
  * from Adobe Systems Incorporated.
  **************************************************************************/
 
-import org.apache.sling.additions.service.SearchService;
+import org.apache.sling.explorer.service.SearchService;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.scripting.SlingBindings;
 import org.apache.sling.api.scripting.SlingScriptHelper;
