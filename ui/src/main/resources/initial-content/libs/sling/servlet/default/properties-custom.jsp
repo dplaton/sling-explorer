@@ -80,16 +80,17 @@
 
 <FORM ID="ADD_PROPERTY_FORM" class="form-inline" METHOD="POST" ACTION="<%= resource.getPath() %>"
       ENCTYPE="MULTIPART/FORM-DATA">
-    <fieldset>
-        <div class="form-group">
-            <INPUT TYPE="HIDDEN" NAME=":redirect" VALUE="<%=slingRequest.getRequestURL()%>"/>
-            <INPUT TYPE="HIDDEN" NAME=":errorpage" VALUE="<%=slingRequest.getRequestURL()%>"/>
-
-            <INPUT class="form-control" TYPE="TEXT" placeholder="new property name" NAME=":property_name" VALUE=""/>
-            <INPUT class="form-control" TYPE="TEXT" placeholder="value"
-                   NAME=":property_name@NameFrom" VALUE=""/>
-            <BUTTON class="btn btn-success" TYPE="SUBMIT"><i class="glyphicon glyphicon-plus"></i>
-            </BUTTON>
-        </div>
-    </fieldset>
+    <INPUT TYPE="HIDDEN" NAME=":redirect" VALUE="<%=slingRequest.getRequestURL()%>"/>
+    <INPUT TYPE="HIDDEN" NAME=":errorpage" VALUE="<%=slingRequest.getRequestURL()%>"/>
+    <div class="form-group">
+        <INPUT class="form-control" TYPE="TEXT" placeholder="new property name" NAME=":property_name" VALUE=""/>
+    </div>
+    <div class="form-group">
+        <INPUT class="form-control" TYPE="TEXT" placeholder="value"
+               NAME=":property_name@NameFrom" VALUE=""/>
+    </div>
+    <div class="form-group">
+        <BUTTON class="btn btn-success" TYPE="SUBMIT"><i class="glyphicon glyphicon-plus"></i>
+        </BUTTON>
+    </div>
 </FORM>

@@ -46,8 +46,10 @@
 		<span class="pull-right">
         <!-- the search box for the current folder -->
         <form class="form-search form-inline">
-            <div class="input-append">
+            <div class=form-group>
                 <input type="text" class="form-control" name="q" class="input-small search-query" value="${param.q}">
+            </div>
+            <div class=form-group>
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </form>
