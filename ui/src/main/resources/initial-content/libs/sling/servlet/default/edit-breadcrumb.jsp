@@ -62,11 +62,17 @@
         <li><a href="/.edit.html">root</a></li>
         <% } else { %>
         <li>
-            <input type="text" class="form-control input-small" name="new_node_name" value="<%=resource.getName()%>"/>
-            <button class="btn btn-success btn-small" type="submit"><i class="glyphicon glyphicon-ok"></i></button>
-            <a href="<%= resource.getPath()+".remove.html"%>" class="btn btn-small btn-danger">
-                <i class="glyphicon glyphicon-trash"></i>
-            </a>
+            <div class="form-group">
+                <input type="text" class="form-control input-small" name="new_node_name" value="<%=resource.getName()%>"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-small" type="submit"><i class="glyphicon glyphicon-ok"></i></button>
+            </div>
+            <div class="form-group">
+                <a href="<%= resource.getPath()+".remove.html"%>" class="btn btn-small btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </div>
             <input type="hidden" name=":dest@ValueFrom" value="new_node_name"/>
             <input type="hidden" name=":operation" value="move"/>
         </li>
