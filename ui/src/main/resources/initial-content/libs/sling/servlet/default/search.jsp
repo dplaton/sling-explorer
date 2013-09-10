@@ -1,4 +1,4 @@
-<%@ page import="org.apache.sling.additions.service.SearchService" %>
+<%@ page import="org.apache.sling.explorer.service.SearchService" %>
 <%@ page import="org.apache.sling.api.resource.Resource" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="javax.jcr.query.InvalidQueryException" %>
