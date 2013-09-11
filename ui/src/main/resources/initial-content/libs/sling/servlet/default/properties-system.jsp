@@ -69,7 +69,7 @@
                     }
     %>
     <div class="form-group">
-        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>:
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
         <p class="form-control-static col-lg-9"><%=value%>
@@ -82,10 +82,10 @@
             value = v[i].getString();
     %>
     <div class="form-group">
-        <label class="control-label col-lg-1" for="<%=name%>"><%=name%>:
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
-        <p class="form-control-static col-lg-11"><%=value%>
+        <p class="form-control-static col-lg-9"><%=value%>
         </p>
     </div>
     <%
@@ -94,13 +94,13 @@
         value = p.getString();
     %>
     <div class="form-group">
-        <label class="control-label col-lg-1" for="<%=name%>"><%=name%>
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
-        <div class="input-group col-lg-11">
+        <div class="input-group col-lg-9">
             <INPUT id="<%=name%>" class="form-control" TYPE="TEXT" NAME="<%=name%>" VALUE="<%=value%>"/>
             <span class="input-group-btn">
-                  <BUTTON class="btn btn-danger" TYPE="SUBMIT" NAME="<%=name%>" VALUE=""
+                <BUTTON class="btn btn-danger" TYPE="SUBMIT" NAME="<%=name%>" VALUE=""
                           FORM="DELETE_PROPERTY_FORM"><i class="glyphicon glyphicon-trash icon-white"></i></BUTTON>
             </span>
         </div>
