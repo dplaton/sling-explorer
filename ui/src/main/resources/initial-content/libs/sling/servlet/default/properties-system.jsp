@@ -45,19 +45,19 @@
                 Property p = properties.nextProperty();
                 String name = p.getName();
                 String value = null;
-                boolean readonly = true;
+                boolean readonly = p.getDefinition().isProtected();
 
+                // rendering properties are skipped
                 if (name.equals("sling:resourceType") || name.equals("sling:resourceSuperType")) {
                     continue;
+                // rendering properties are skipped
                 } else if (name.equals("jcr:primaryType")) {
                     continue;
+                // rendering properties are skipped
                 } else if (name.equals("jcr:mixinTypes")) {
                     continue;
-                } else if (name.startsWith("sling:")) {
-                    readonly = false;
-                } else if (name.startsWith("jcr:")) {
-                    readonly = true;
-                } else {
+                // only accept sling: and jcr: properties as 'system' 
+                } else if (!name.startsWith("sling:") && !name.startsWith("jcr:")) {
                     continue;
                 }
 
