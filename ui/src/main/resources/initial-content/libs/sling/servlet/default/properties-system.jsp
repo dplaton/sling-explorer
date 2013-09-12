@@ -45,19 +45,19 @@
                 Property p = properties.nextProperty();
                 String name = p.getName();
                 String value = null;
-                boolean readonly = true;
+                boolean readonly = p.getDefinition().isProtected();
 
+                // rendering properties are skipped
                 if (name.equals("sling:resourceType") || name.equals("sling:resourceSuperType")) {
                     continue;
+                // rendering properties are skipped
                 } else if (name.equals("jcr:primaryType")) {
                     continue;
+                // rendering properties are skipped
                 } else if (name.equals("jcr:mixinTypes")) {
                     continue;
-                } else if (name.startsWith("sling:")) {
-                    readonly = false;
-                } else if (name.startsWith("jcr:")) {
-                    readonly = true;
-                } else {
+                // only accept sling: and jcr: properties as 'system' 
+                } else if (!name.startsWith("sling:") && !name.startsWith("jcr:")) {
                     continue;
                 }
 
@@ -69,7 +69,7 @@
                     }
     %>
     <div class="form-group">
-        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>:
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
         <p class="form-control-static col-lg-9"><%=value%>
@@ -82,10 +82,10 @@
             value = v[i].getString();
     %>
     <div class="form-group">
-        <label class="control-label col-lg-1" for="<%=name%>"><%=name%>:
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
-        <p class="form-control-static col-lg-11"><%=value%>
+        <p class="form-control-static col-lg-9"><%=value%>
         </p>
     </div>
     <%
@@ -94,13 +94,13 @@
         value = p.getString();
     %>
     <div class="form-group">
-        <label class="control-label col-lg-1" for="<%=name%>"><%=name%>
+        <label class="col-lg-3 control-label" for="<%=name%>"><%=name%>
         </label>
 
-        <div class="input-group col-lg-11">
+        <div class="input-group col-lg-9">
             <INPUT id="<%=name%>" class="form-control" TYPE="TEXT" NAME="<%=name%>" VALUE="<%=value%>"/>
             <span class="input-group-btn">
-                  <BUTTON class="btn btn-danger" TYPE="SUBMIT" NAME="<%=name%>" VALUE=""
+                <BUTTON class="btn btn-danger" TYPE="SUBMIT" NAME="<%=name%>" VALUE=""
                           FORM="DELETE_PROPERTY_FORM"><i class="glyphicon glyphicon-trash icon-white"></i></BUTTON>
             </span>
         </div>
