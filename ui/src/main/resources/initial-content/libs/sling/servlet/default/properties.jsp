@@ -23,14 +23,16 @@
 
 %><!DOCTYPE html>
 <html>
-<sling:include resource="<%=resource%>" replaceSelectors="head"/>
+<head>
+    <sling:include resource="<%=resource%>" replaceSelectors="head"/>
+</head>
 <body>
 <div class="container">
     <h3>Edit Properties</h3>
     <div class="alert alert-info">
         <i class="glyphicon glyphicon-folder-open"></i> <%= resource.getPath() %>
     </div>
-    <sling:include resource="<%=resource%>" replaceSelectors="properties-body"/>
+    <sling:include resource="<%= resource%>" replaceSelectors="properties-body"/>
     <a href="<%= resource.getPath() + ".edit.html" %>" class="btn btn-primary">Back to navigation</a>
 </div>
 </body>

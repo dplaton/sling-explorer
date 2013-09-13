@@ -14,9 +14,9 @@
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="/apps/sling-explorer/bootstrap/css/bootstrap.css">
-<link href="/apps/sling-explorer/bootstrap/css/explorer.css" rel="stylesheet" media="screen">
+<!-- <link href="/apps/sling-explorer/bootstrap/css/explorer.css" rel="stylesheet" media="screen"> -->
 
-<script type="text/javascript" src="/apps/sling-explorer/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/apps/sling-explorer/jquery-1.10.2.min.js"></script>
 <script src="/apps/sling-explorer/bootstrap/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="/apps/sling-explorer/sling-explorer.css">

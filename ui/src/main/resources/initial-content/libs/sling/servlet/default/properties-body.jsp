@@ -34,65 +34,15 @@
     <input type="hidden" name=":errorpage" value="<%=slingRequest.getRequestURL()%>"/>
 </form>
 
-<div class="panel ">
-    <div class="panel-heading">
-        <h4 class="panel-title">System properties</h4>
-    </div>
-    <div class="panel-body">
-        <sling:include resource="<%= resource %>" replaceSelectors="properties-system"/>
-    </div>
-</div>
-
 <div class="panel">
     <div class="panel-heading">
-        <h4 class="panel-title">Mixins (jcr:mixinTypes)</h4>
-    </div>
-    <div class="panel-body">
-        <sling:include resource="<%= resource %>" replaceSelectors="properties-mixins"/>
-    </div>
-</div>
-
-<div class="panel">
-    <div class="panel-heading">
-        <h4 class="panel-title">Rendering</h4>
-    </div>
-    <div class="panel-body">
-        <sling:include resource="<%= resource %>" replaceSelectors="properties-rendering"/>
+        <h3 class="panel-title">Properties</h3>
+        <div class="panel-body">
+            <sling:include resource="<%= resource%>" replaceSelectors="properties-custom"/>
+        </div>
     </div>
 </div>
 
-<div class="panel">
-    <div class="panel-heading">
-        <h4 class="panel-title">Custom properties</h4>
-    </div>
-    <div class="panel-body">
-        <sling:include resource="<%= resource %>" replaceSelectors="properties-custom"/>
-    </div>
-</div>
-
-<!--
-
-<FORM style="margin-bottom:2px" ID="EDIT_PROPERTIES_FORM" METHOD="POST" ACTION="<%= resource.getPath() %>" ENCTYPE="MULTIPART/FORM-DATA">
-<input type="hidden" name=":redirect" value="<%=slingRequest.getRequestURL()%>" />
-<input type="hidden" name=":errorpage" value="<%=slingRequest.getRequestURL()%>" />
-<fieldset>
-<legend>Mixins (jcr:mixinTypes)</legend>
-
-</fieldset>
-
-<fieldset>
-<legend>Rendering</legend>
-</fieldset>
-
-<fieldset>
-<legend>System</legend>
-</fieldset>
-
-<fieldset>
-<legend>Custom</legend>
-</fieldset>
-
-</FORM> -->
 
 
 
