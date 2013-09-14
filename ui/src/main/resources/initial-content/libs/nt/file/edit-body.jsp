@@ -16,9 +16,12 @@
 %><%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %><%
 %><sling:defineObjects /><%
 	String type = "unknown";
-	if (currentNode.hasProperty("jcr:content/jcr:mimeType")) {
-		String path = currentNode.getPath();
-		String mimetype = currentNode.getProperty("jcr:content/jcr:mimeType").getString();
+
+	if (resource.getChild("jcr:content/jcr:mimeType") != null) {
+		String path = resource.getPath();
+        Resource contentRes = resource.getChild("jcr:content");
+        ValueMap contentVm = contentRes.adaptTo(ValueMap.class);
+		String mimetype = contentVm.get("jcr:mimeType",String.class);
 
 		if      (mimetype.equalsIgnoreCase("plain/text")) type = "text";
 		else if (mimetype.equalsIgnoreCase("text/plain")) type = "text";
@@ -47,5 +50,4 @@
 				</DIV>
 			<% } else { %>
 				<a href="<%=resource.getPath()%>"><%=resource.getName()%></a>
-				<!-- IFRAME width="100%" src="<%=currentNode.getPath()%>"></IFRAME -->
 			<% } %>
