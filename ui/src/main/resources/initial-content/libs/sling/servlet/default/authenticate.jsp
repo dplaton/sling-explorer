@@ -31,7 +31,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-5"></div>
-        <div class="col-lg-2">
+        <div class="col-lg-2" style="padding-top:25px">
             <form method="post" action="/j_security_check" enctype="MULTIPART/FORM-DATA" accept-charset="UTF-8">
                 <fieldset>
                     <legend><h3>Login</h3></legend>

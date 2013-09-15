@@ -24,7 +24,7 @@
 %><sling:defineObjects/><%
 
     int[] propertyTypes = new int[]{
-            PropertyType.BINARY, PropertyType.BOOLEAN, PropertyType.DATE, PropertyType.LONG, PropertyType.DOUBLE, PropertyType.DECIMAL, PropertyType.NAME, PropertyType.REFERENCE, PropertyType.STRING, PropertyType.WEAKREFERENCE, PropertyType.PATH, PropertyType.URI
+        PropertyType.STRING, PropertyType.BINARY, PropertyType.BOOLEAN, PropertyType.DATE, PropertyType.LONG, PropertyType.DOUBLE, PropertyType.DECIMAL, PropertyType.NAME, PropertyType.REFERENCE, PropertyType.WEAKREFERENCE, PropertyType.PATH, PropertyType.URI
     };
 
 
@@ -97,7 +97,7 @@
             <p class="form-control-static"><%= PropertyType.nameFromValue(definition.getRequiredType())%>
             </p>
             <% } else {%>
-            <select class="form-control input-sm" id="nodeType_<%=name.replace(":","")%>" name="<%=name%>@TypeHint">
+            <select class="form-control input-sm" id="nodeType_<%=name.replace(":","")%>" name="./<%=name%>@TypeHint">
                 <%
                     for (int type : propertyTypes) {
                         String selected = (type == p.getType()) ? "selected" : "";
@@ -114,7 +114,7 @@
 
         <p class="col-md-2 btn-group-md">
             <% if (!(definition.isProtected())) { %>
-            <button class="btn btn-success btn-sm" type="submit">
+            <button class="btn btn-success btn-sm" type="submit" id="submit_<%= name.replace(":","")%>">
                 <i class="glyphicon glyphicon-ok"></i>
             </button>
             <button class="btn btn-danger btn-sm" type="submit" name="<%=name%>" value=""
@@ -129,6 +129,7 @@
             }
         }
     %>
+    <div id="hidden-container" style="display:none"></div>
 </form>
 <div class="col-md-12">
     <span class="help-block ">Enclose multiple values in square-brackets and separate the values by comma if you want to update fields with multiple values.</span>
@@ -152,20 +153,29 @@
     })
 
     $("#editForm button.btn-success").click(function() {
-        console.log("submitting!");
-        $("#editForm input[type='text']").each(function(index) {
-            console.log('Processing index ' + index);
-            var value = this.value;
-            if (value.indexOf("[") == 0 && value.indexOf("]") == value.length - 1) {
-                var valuesArray = value.substring(1, value.indexOf("]")).split(',');
-                var input = this;
-                $.each(valuesArray, function(index, value) {
-                    console.log('Creating for ' + value);
-                    $("<input>").attr({type: 'hidden', name: input.id, value: value}).appendTo("#editForm div:last-child");
-                })
-            }
-            $(this).remove();
-        });
+        var fieldToSubmit = this.id.substring(this.id.indexOf("_")+1, this.id.length);
+        var multiCheck = $("#multi_"+fieldToSubmit);
+        if (multiCheck.is(":checked")) {
+            $("#editForm #" + fieldToSubmit).each(function(index) {
+                console.log('Processing index ' + index);
+                var value = this.value;
+                if (value.indexOf("[") == 0 && value.indexOf("]") == value.length - 1) {
+                    var valuesArray = value.substring(1, value.indexOf("]")).split(',');
+                    var input = this;
+                    $.each(valuesArray, function(index, value) {
+                        console.log('Creating for ' + value);
+                        $("<input>").attr({type: 'hidden', name: "./"+input.id, value: value}).appendTo("#editForm #hidden-container");
+                    })
+                }
+                var that = $(this);
+                that.attr({name:""});
+            });
+        } else {
+            var input = $("#editForm #" + fieldToSubmit);
+            var oldName = input.attr("name");
+            input.attr({name: "./"+oldName});
+        }
+
     });
 </script>
 
