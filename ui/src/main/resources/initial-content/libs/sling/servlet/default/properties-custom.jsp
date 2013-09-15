@@ -24,7 +24,7 @@
 %><sling:defineObjects/><%
 
     int[] propertyTypes = new int[]{
-            PropertyType.BINARY, PropertyType.BOOLEAN, PropertyType.DATE, PropertyType.LONG, PropertyType.DOUBLE, PropertyType.DECIMAL, PropertyType.NAME, PropertyType.REFERENCE, PropertyType.STRING, PropertyType.UNDEFINED, PropertyType.URI
+            PropertyType.BINARY, PropertyType.BOOLEAN, PropertyType.DATE, PropertyType.LONG, PropertyType.DOUBLE, PropertyType.DECIMAL, PropertyType.NAME, PropertyType.REFERENCE, PropertyType.STRING, PropertyType.WEAKREFERENCE, PropertyType.PATH, PropertyType.URI
     };
 
 
