@@ -6,7 +6,11 @@
 ** $Revision: $
 ************************************************************************/
 --%>
-<%@page session="false" contentType="text/html; charset=utf-8" %>
+<%@page session="false" 
+    contentType="text/html; charset=utf-8"
+    import="javax.jcr.*,
+            javax.jcr.nodetype.*" 
+    %>
 <%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
 <sling:defineObjects/>
 <%
@@ -21,6 +25,9 @@
     } else {
         newContent += "/";
     }
+    
+    Session session = resourceResolver.adaptTo(Session.class);
+    NodeTypeIterator nodes = session.getWorkspace().getNodeTypeManager().getAllNodeTypes();
 %>
 
 <form ID="CREATEFORM" class="form-horizontal" method="post" action="<%= newContent %>" enctype="multipart/form-data">
@@ -47,11 +54,19 @@
 
             <div class="controls">
                 <select name=":content" class="form-control">
-                    <option value="{ 'jcr:primaryType':'sling:Folder' }">Sling Folder</option>
-                    <option value="{ 'jcr:primaryType':'nt:unstructured' }">Unstructured Node</option>
-                    <option value="{ 'jcr:primaryType':'nt:file','jcr:content':{'jcr:primaryType':'nt:resource','jcr:data':'','jcr:mimeType':'text/plain'} }">
-                        Empty Text File
-                    </option>
+                <% while ( nodes.hasNext() ) { 
+                    NodeType nodeType = nodes.nextNodeType();
+                    if ( nodeType.isMixin() ) {
+                        continue;
+                    }
+                    
+                    // not handled here, only possible when uploading a file
+                    if ( nodeType.getName().equals("nt:file") ) {
+                        continue;
+                    }
+                %>
+                    <option value="{ 'jcr:primaryType':'<%= nodeType.getName() %>' }"><%= nodeType.getName() %></option>
+                 <% } %>
                 </select>
             </div>
 
