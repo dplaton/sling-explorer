@@ -5,8 +5,11 @@
  **   $Author: $
  ** $Revision: $
  ************************************************************************/
---%><%
-%><%@page session="false" contentType="text/html; charset=utf-8" %><%
+--%>
+<%
+%><%@page 
+    session="false" contentType="text/html; charset=utf-8" 
+    import="org.apache.sling.api.resource.SyntheticResource"%><%
 %><%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
 <sling:defineObjects />
 
@@ -16,9 +19,9 @@
         <h3>Tree navigation goes here</h3>
     </div> -->
     <!-- <div class="col-lg-8"> -->
-
+    <% if ( !(resource instanceof SyntheticResource)) { %>
         <sling:include resource="${resource}" replaceSelectors="edit-toolbar"/>
-    <%
+    <% }
     if (resource.getChildren().iterator().hasNext()) { %>
         <sling:include resource="<%=resource%>" replaceSelectors="edit-pathlist"/>
     <% } else { %>
