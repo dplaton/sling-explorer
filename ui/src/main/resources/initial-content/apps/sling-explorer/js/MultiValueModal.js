@@ -4,7 +4,7 @@ var Properties = Properties || {};
 
     Properties.MultiValueModal = function(config) {
         console.log('Mutivalue modal on...');
-        this.config = config;
+
         this.modalId = config["id"];
         var dataString = config["dataString"];
 
@@ -17,12 +17,13 @@ var Properties = Properties || {};
         this.attachEvents();
         this.fieldContainer.empty();
         this.render();
-
-
     }
 
     Properties.MultiValueModal.prototype = {
 
+        /**
+         * Attaches the event to the "addValue" button
+         */
         attachEvents: function() {
             var addValueButton = $("#" + this.modalId + " #addValueButton");
             var modal = this;
@@ -42,6 +43,9 @@ var Properties = Properties || {};
             });
         },
 
+        /**
+         * Renders the input fields and fills them with the values
+         */
         render: function() {
 
             var modal = this;
@@ -55,6 +59,10 @@ var Properties = Properties || {};
             });
         },
 
+        /**
+         * Creates an input field corresponding to a value in the values array
+         * @param fieldConfig {Object} configuration options for the field.
+         */
         createField: function(fieldConfig) {
             var caca = $("<div>").addClass("form-group").appendTo(this.fieldContainer);
             var container = $("<div>").addClass("input-group").appendTo(caca);
@@ -77,6 +85,14 @@ var Properties = Properties || {};
     }
 
 
+    /**
+     * Creates an object of this type and returns the handler
+     * @param config configuration options. Current configuration options are: <br/>
+     *  id: the id of the DOM element representing this modal;
+     *  dataString: a comma separated string of values
+     *  fieldName: the name of the multi-value field
+     * @returns {Properties.MultiValueModal}
+     */
     Properties.MultiValueModal.create = function(config) {
         return new Properties.MultiValueModal(config);
     }
