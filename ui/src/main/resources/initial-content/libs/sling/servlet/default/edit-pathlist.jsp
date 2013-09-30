@@ -37,6 +37,7 @@
         <sling:adaptTo adaptable="${item}" adaptTo="org.apache.sling.api.resource.ValueMap" var="valueMap"/>
         <sling:getProperty properties="${valueMap}" key="jcr:primaryType" var="type"/>
         <sling:getProperty properties="${valueMap}" key="sling:resourceType" var="resourceType"/>
+        <sling:getProperty properties="${valueMap}" key="sling:resourceSuperType" var="resourceSuperType"/>
         <tr>
             <td>
                 <i class="glyphicon <%= iconForType((String)pageContext.getAttribute("type"))%>"></i>
@@ -52,7 +53,9 @@
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <sling:include path="${item.path}" replaceSelectors="pathlist-actions"/>
+                    <c:if test="${resourceSuperType != 'sling/bundle/resource'}">
+                        <sling:include path="${item.path}" replaceSelectors="pathlist-actions"/>
+                    </c:if>
                 </div>
             </td>
         </tr>
