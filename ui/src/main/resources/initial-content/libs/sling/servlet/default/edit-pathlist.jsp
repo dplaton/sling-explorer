@@ -1,5 +1,4 @@
-<%@ page import="org.apache.sling.api.request.RequestUtil" %>
-<%@ page import="org.apache.sling.api.servlets.ServletResolver" %>
+<%@page import="org.apache.sling.api.resource.ResourceUtil" %>
 <%@page session="false" contentType="text/html; charset=utf-8" %>
 <%@ include file="/apps/sling-explorer/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
@@ -25,7 +24,6 @@
     </thead>
     <tbody>
     <%
-        ServletResolver servletResolver = sling.getService(ServletResolver.class);
         if (q != null) {
     %> <q:searchByName basePath="${resource.path}" baseType="nt:base" nodeName="${q}" resultVar="children"/>
     <%
@@ -48,7 +46,8 @@
             <td>${type}</td>
             <td>
                 <c:if test="${not empty resourceType}">
-                    ${resourceType} <a href="/.edit.html?q=${resourceType}"><i class="glyphicon glyphicon-search"></i></a>
+                    ${resourceType}
+                    <a href="/.edit.html?q=${resourceType}"><i class="glyphicon glyphicon-search"></i></a>
                 </c:if>
             </td>
             <td>

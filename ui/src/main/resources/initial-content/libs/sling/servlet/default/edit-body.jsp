@@ -8,9 +8,9 @@
 --%>
 <%
 %><%@page 
-    session="false" contentType="text/html; charset=utf-8" 
-    import="org.apache.sling.api.resource.SyntheticResource"%><%
-%><%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
+    session="false" contentType="text/html; charset=utf-8" %>
+<%@ page import="org.apache.sling.api.resource.ResourceUtil" %>
+<%@ taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %>
 <sling:defineObjects />
 
 <div class="row-fluid">
@@ -19,7 +19,7 @@
         <h3>Tree navigation goes here</h3>
     </div> -->
     <!-- <div class="col-lg-8"> -->
-    <% if ( !(resource instanceof SyntheticResource)) { %>
+    <% if (ResourceUtil.isSyntheticResource(resource)) { %>
         <sling:include resource="${resource}" replaceSelectors="edit-toolbar"/>
     <% }
     if (resource.getChildren().iterator().hasNext()) { %>
