@@ -196,29 +196,9 @@
 
     $("#editForm button.btn-success").click(function() {
         var fieldToSubmit = this.id.substring(this.id.indexOf("_") + 1, this.id.length);
-        var multiCheck = $("#multi_" + fieldToSubmit);
-        /*
-         if (multiCheck.is(":checked")) {
-         $("#editForm #" + fieldToSubmit).each(function(index) {
-         console.log('Processing index ' + index);
-         var value = this.value;
-         if (value.indexOf("[") == 0 && value.indexOf("]") == value.length - 1) {
-         var valuesArray = value.substring(1, value.indexOf("]")).split(',');
-         var input = this;
-         $.each(valuesArray, function(index, value) {
-         console.log('Creating for ' + value);
-         $("<input>").attr({type: 'hidden', name: "./" + input.id, value: value}).appendTo("#editForm #hidden-container");
-         })
-         }
-         var that = $(this);
-         that.attr({name: ""});
-         });
-         } else { */
         var input = $("#editForm #" + fieldToSubmit);
         var oldName = input.attr("name");
         input.attr({name: "./" + oldName});
-        //}
-
     });
 </script>
 
@@ -238,29 +218,6 @@
             });
         }
     });
-    /*
-     $("#addPropertyForm").submit(function() {
-     var checkbox = $("#addPropertyForm input[type='checkbox']");
-     if (!checkbox.is(":checked")) {
-     return true;
-     }
-     /*
-     var typeHint = $("#addPropertyForm #typeHint");
-     var inputField = $("#newProperty");
-     var newProperty = $("#newPropertyName");
-     var value = inputField.val();
-
-
-     if (value.indexOf("[") == 0 && value.indexOf("]") == value.length - 1) {
-     var valuesArray = value.substring(1, value.indexOf("]")).split(',');
-     $.each(valuesArray, function(index, value) {
-     console.log('Creating for ' + value);
-     $("<input>").attr({type: 'hidden', name: newProperty.val(), value: value}).appendTo("#addPropertyForm #hidden-container-1");
-     })
-     }
-
-     inputField.remove();
-     }); */
 </script>
 
 

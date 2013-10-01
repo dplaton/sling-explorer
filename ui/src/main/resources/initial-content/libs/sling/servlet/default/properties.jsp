@@ -25,6 +25,7 @@
 <html>
 <head>
     <sling:include resource="<%=resource%>" replaceSelectors="head"/>
+    <script type="text/javascript" src="/apps/sling-explorer/js/MultiValueModal.js"></script>
 </head>
 <body>
 <div class="container">
