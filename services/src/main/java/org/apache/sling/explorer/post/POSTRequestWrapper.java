@@ -26,6 +26,24 @@ import org.apache.sling.api.wrappers.SlingHttpServletRequestWrapper;
 
 import java.util.*;
 
+/**
+ * Wraps a standard POST request.<br/>
+ * Used to manipulate the POSTed data in order to support <code>@NameFrom</code> suffix
+ * <br/>
+ * Short example:<br/>
+ * A typical case looks like this:         </br>
+ * <pre>
+ * :property_name='Name'
+ * :property_name@NameFrom='Sky Lukewalker'
+ * :property_name@TypeHint=String
+ * </pre>
+ *
+ * This wrapper transforms these parameters in </br>
+ * <pre>
+ *  Name='Sky Lukewalker'
+ *  Name@TypeHint=String
+ * </pre>
+ */
 public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
 
     private static final String NAME_FROM_SUFFIX = "@NameFrom";
@@ -54,7 +72,9 @@ public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
 
     public POSTRequestWrapper(SlingHttpServletRequest req) {
         super(req);
+        // this is the parameter map we get from the client
         RequestParameterMap pars = super.getRequestParameterMap();
+        // this will be the new parameter map
         mypars = new ParameterMap();
 
         Iterator it = pars.entrySet().iterator();
@@ -64,10 +84,12 @@ public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
             RequestParameter[] val = (RequestParameter[]) vp.getValue();
 
             if (key.endsWith(NAME_FROM_SUFFIX)) {
+                // look up the property which contains the name (i.e. has the @NameFrom suffix)
                 String pname = key.substring(0, key.length() - NAME_FROM_SUFFIX.length());
                 RequestParameter nval = pars.getValue(pname);
                 if (nval != null) {
                     mypars.removeParameter(pname);
+                    // put the right combination in our parameters map
                     mypars.setParameters(nval.getString(), val);
                 }
             } else if (key.endsWith(TYPE_HINT_SUFFIX)) {
