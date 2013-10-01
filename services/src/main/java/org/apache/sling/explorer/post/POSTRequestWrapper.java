@@ -28,9 +28,10 @@ import java.util.*;
 
 public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
 
-    private static final String NAME_FROM_SUFFIX="@NameFrom";
-    private static final String DELETE_VALUE_SUFFIX="@DeleteValue";
-    private static final String VALUE_FROM_SUFFIX="@ValueFrom";
+    private static final String NAME_FROM_SUFFIX = "@NameFrom";
+    private static final String DELETE_VALUE_SUFFIX = "@DeleteValue";
+    private static final String VALUE_FROM_SUFFIX = "@ValueFrom";
+    private static final String TYPE_HINT_SUFFIX = "@TypeHint";
 
     private ParameterMap mypars;
 
@@ -68,6 +69,14 @@ public class POSTRequestWrapper extends SlingHttpServletRequestWrapper {
                 if (nval != null) {
                     mypars.removeParameter(pname);
                     mypars.setParameters(nval.getString(), val);
+                }
+            } else if (key.endsWith(TYPE_HINT_SUFFIX)) {
+                String pName = key.substring(0, key.length() - NAME_FROM_SUFFIX.length());
+                if (pars.containsKey(pName + NAME_FROM_SUFFIX)) {
+                    RequestParameter propName = pars.getValue(pName);
+                    mypars.setParameters(propName.getString() + TYPE_HINT_SUFFIX, pars.getValues(key));
+                } else {
+                    mypars.setParameters(key, val);
                 }
             } else if (key.endsWith(DELETE_VALUE_SUFFIX)) {
                 String pname = key.substring(0, key.length() - DELETE_VALUE_SUFFIX.length());
