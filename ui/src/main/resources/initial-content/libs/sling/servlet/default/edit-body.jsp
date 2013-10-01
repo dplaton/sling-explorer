@@ -19,7 +19,7 @@
         <h3>Tree navigation goes here</h3>
     </div> -->
     <!-- <div class="col-lg-8"> -->
-    <% if (ResourceUtil.isSyntheticResource(resource)) { %>
+    <% if (!ResourceUtil.isSyntheticResource(resource)) { %>
         <sling:include resource="${resource}" replaceSelectors="edit-toolbar"/>
     <% }
     if (resource.getChildren().iterator().hasNext()) { %>

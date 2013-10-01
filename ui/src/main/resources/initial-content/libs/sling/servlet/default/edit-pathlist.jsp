@@ -1,4 +1,3 @@
-<%@page import="org.apache.sling.api.resource.ResourceUtil" %>
 <%@page session="false" contentType="text/html; charset=utf-8" %>
 <%@ include file="/apps/sling-explorer/components/utils.jsp" %>
 <%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
